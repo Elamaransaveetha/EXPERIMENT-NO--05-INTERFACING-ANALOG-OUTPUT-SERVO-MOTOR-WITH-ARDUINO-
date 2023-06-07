@@ -2,7 +2,7 @@
 
 ### AIM
 To interface an Analog output (servo motor) and modify the angular displacement of the servo using PWM signal .
-COMPONENTS REQUIRED:
+### COMPONENTS REQUIRED:
 1.	Servo motor of choice (9v is preferred )
 2.	1 KΩ resistor 
 3.	Arduino Uno 
@@ -11,7 +11,7 @@ COMPONENTS REQUIRED:
 6.	Servo rated power supply (dc source )
 
 
-### THEORY
+### THEORY:
 Servo motors and are constructed out of basic DC motors, by adding:
 •	 gear reduction
 •	 a position sensor for the motor shaft
@@ -67,14 +67,50 @@ CIRCUIT DIAGRAM
 
 
 ### PROGRAM :
- 
+ ```
+Developed by Elamaran  (CSE)
+Reg no : 212222040041
 
 
+#include <Servo.h>
+int pos = 0;
 
+Servo servo_9;
 
+void setup()
+{
+servo_9.attach(9, 500, 2500);
+Serial.begin(9600);  
 
+}
 
+void loop()
+{
+for (pos = 0 ; pos <= 360 ; pos += 1)
+{
+  servo_9.write(pos);
+  delay(1);
+  //Serial.print("Angle of Server = ");
+  Serial.println(pos);    
+  
+}
+for (pos = 360 ; pos >= 0 ; pos -= 1){
+  servo_9.write(pos);
+  delay(1);
+  //Serial.print("Angle of Server = ");
+  Serial.println(pos);    
+}
+}
+```
+### OUTPUT:
 
+### BEFORE SIMULATION:
+
+![image](https://github.com/Elamaransaveetha/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/119560403/e920b60a-8a09-42be-aafc-5f8b3bf03077)
+
+### AFTER SIMULATION:
+
+![image](https://github.com/Elamaransaveetha/EXPERIMENT-NO--05-INTERFACING-ANALOG-OUTPUT-SERVO-MOTOR-WITH-ARDUINO-/assets/119560403/f074f93f-5962-45af-83dd-01e684eba0ae)
 
 
 ### RESULTS: 
